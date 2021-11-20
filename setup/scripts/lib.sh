@@ -2,7 +2,7 @@
 
 CWD=${0:a:h}
 
-cd "$CWD/../" && \
+cd "$CWD/../../" && \
 # Remove the submodule entry from .git/config
 git submodule deinit -f kwik && \
 # Remove the submodule directory from the superproject's .git/modules directory
@@ -13,10 +13,10 @@ git submodule add https://github.com/ptrd/kwik.git && \
 git submodule update --init --recursive
 
 # Build and add kwik.jar to local repo
-cd "$CWD/../kwik" && \
+cd "$CWD/../../kwik" && \
 gradle clean build -x test && \
 mvn install:install-file \
-   -Dfile="$CWD/../kwik/build/libs/kwik.jar" \
+   -Dfile="$CWD/../../kwik/build/libs/kwik.jar" \
    -DgroupId=net.luminis.quic \
    -DartifactId=kwik \
    -Dversion=1.0.0 \

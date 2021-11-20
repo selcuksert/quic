@@ -10,12 +10,21 @@ https://www.chromium.org/quic[QUIC] protocol PoC using VertX based client and ht
 |Healthcheck for client
 
 |:8888/http
-|`HTTPClient` request to QUIC server to get index.html under server's web root directory
+|`HTTPClient` request to QUIC server to get index.html under server's link:setup/www[web root directory]
 
 |:8888/stream?path=/version
 |`QUICStream` request to QUIC server to get version of server
 
 |:8888/stream?path=/version
-|`QUICStream` request to QUIC server to get index.html under server's web root directory
+|`QUICStream` request to QUIC server to get index.html under server's link:setup/www[web root directory]
 
 |===
+
+The client project generates a secret file (`quic.secret`) for the sake of decrypting QUIC messages using Wireshark network analyzer.
+
+== Scripts
+
+* link:setup/scripts/lib.sh[lib.sh]: Script to generate and push main artifact `kwik.jar` to local maven repo.
+* link:setup/scripts/startClient.sh[startClient.sh]: Starts test client embedded in `kwik.jar`.
+* link:setup/scripts/startClient.sh[startServer.sh]: Starts server embedded in `kwik.jar`.
+* link:setup/scripts/generateCert.sh[generateCert.sh]: Generates self-signed TLS certificate and keys for server embedded in `kwik.jar`.
