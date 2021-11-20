@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.corp.concepts.quic</groupId>
     <artifactId>sender</artifactId>
 
     <properties>
@@ -35,6 +36,10 @@
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-config</artifactId>
         </dependency>
         <dependency>
             <groupId>com.corp.concepts</groupId>
@@ -120,6 +125,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>
