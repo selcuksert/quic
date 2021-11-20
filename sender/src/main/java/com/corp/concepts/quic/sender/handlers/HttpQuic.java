@@ -1,6 +1,7 @@
 package com.corp.concepts.quic.sender.handlers;
 
 import com.corp.concepts.quic.common.QuicLogger;
+import com.corp.concepts.quic.common.UriBuilder;
 import io.vertx.core.Handler;
 import io.vertx.core.MultiMap;
 import io.vertx.ext.web.RoutingContext;
@@ -11,7 +12,6 @@ import net.luminis.quic.Version;
 import net.luminis.quic.client.h09.Http09Client;
 import net.luminis.quic.log.Logger;
 import net.luminis.quic.run.KwikCli;
-import org.apache.http.client.utils.URIBuilder;
 
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.file.Path;
 import java.time.Duration;
 
 public class HttpQuic implements Handler<RoutingContext> {
@@ -66,17 +67,15 @@ public class HttpQuic implements Handler<RoutingContext> {
             // Get the query parameters
             MultiMap queryParams = context.queryParams();
             String host = queryParams.contains("host") ? queryParams.get("host") : "localhost";
-            String port = queryParams.contains("port") ? queryParams.get("port") : "4433";
+            int port = queryParams.contains("port") ? Integer.parseInt(queryParams.get("port")) : 4433;
             String path = queryParams.contains("path") ? queryParams.get("path") : "/index.html";
-
-            URIBuilder uriBuilder = new URIBuilder();
-            uriBuilder.setHost(host).setPort(Integer.valueOf(port).intValue()).setScheme("https");
 
             QuicClientConnectionImpl.Builder builder = QuicClientConnectionImpl.newBuilder();
             QuicClientConnectionImpl quicConnection =
                     builder.version(Version.IETF_draft_32)
-                            .uri(uriBuilder.build())
+                            .uri(UriBuilder.getInstance().build("https", host, port, path))
                             .logger(logger)
+                            .secrets(Path.of("./quic.secret"))
                             .noServerCertificateCheck()
                             .build();
 
