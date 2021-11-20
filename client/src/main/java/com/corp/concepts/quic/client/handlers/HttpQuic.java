@@ -1,4 +1,4 @@
-package com.corp.concepts.quic.sender.handlers;
+package com.corp.concepts.quic.client.handlers;
 
 import com.corp.concepts.quic.common.QuicLogger;
 import com.corp.concepts.quic.common.UriBuilder;

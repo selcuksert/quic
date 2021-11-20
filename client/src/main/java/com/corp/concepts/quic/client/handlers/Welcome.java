@@ -1,4 +1,4 @@
-package com.corp.concepts.quic.sender.handlers;
+package com.corp.concepts.quic.client.handlers;
 
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;

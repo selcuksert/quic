@@ -1,8 +1,8 @@
-package com.corp.concepts.quic.sender;
+package com.corp.concepts.quic.client;
 
-import com.corp.concepts.quic.sender.handlers.HttpQuic;
-import com.corp.concepts.quic.sender.handlers.Stream;
-import com.corp.concepts.quic.sender.handlers.Welcome;
+import com.corp.concepts.quic.client.handlers.HttpQuic;
+import com.corp.concepts.quic.client.handlers.Stream;
+import com.corp.concepts.quic.client.handlers.Welcome;
 import io.vertx.config.ConfigRetriever;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Promise;

@@ -13,7 +13,7 @@
     <artifactId>sender</artifactId>
 
     <properties>
-        <main.verticle>com.corp.concepts.quic.sender.MainVerticle</main.verticle>
+        <main.verticle>com.corp.concepts.quic.client.MainVerticle</main.verticle>
     </properties>
 
     <dependencyManagement>

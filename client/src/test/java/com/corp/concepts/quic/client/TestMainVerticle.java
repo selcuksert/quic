@@ -1,4 +1,4 @@
-package com.corp.concepts.quic.sender;
+package com.corp.concepts.quic.client;
 
 import io.vertx.core.Vertx;
 import io.vertx.junit5.VertxExtension;
