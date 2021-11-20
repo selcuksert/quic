@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.corp.concepts.quic</groupId>
-    <artifactId>sender</artifactId>
+    <artifactId>client</artifactId>
 
     <properties>
         <main.verticle>com.corp.concepts.quic.client.MainVerticle</main.verticle>
