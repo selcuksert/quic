@@ -10,7 +10,6 @@
     <modules>
         <module>sender</module>
         <module>common</module>
-        <module>receiver</module>
     </modules>
     <packaging>pom</packaging>
 
