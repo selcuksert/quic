@@ -1,0 +1,3 @@
+[submodule "kwik"]
+	path = kwik
+	url = https://github.com/ptrd/kwik.git
